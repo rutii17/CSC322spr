@@ -1,0 +1,244 @@
+//import THREE
+import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
+
+// import Orbit controls
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 3000 );
+camera.position.set( 0, 0, 1000 );
+camera.lookAt( 0, 0, 0 );
+
+const scene = new THREE.Scene();
+
+//create a blue LineBasicMaterial
+const material = new THREE.LineBasicMaterial( { color: 0xffff00 } );
+const points = [];
+
+//temp
+const points1 = [];
+const points2 = [];
+const points3 = [];
+const points4 = [];
+const points5 = [];
+const points6 = [];
+const points7 = [];
+const points8 = [];
+const points9 = [];
+const points10 = [];
+const points11= [];
+const points12= [];
+
+//Front 
+
+points1.push( new THREE.Vector3( 17, 500, 17) );//
+points1.push( new THREE.Vector3( -27, 0, 27 ) );
+points1.push( new THREE.Vector3( - 17, 500, 17 ) );//
+points1.push( new THREE.Vector3( 17, 500, 17) );//
+
+points2.push( new THREE.Vector3( 17, 500, 17) );
+points2.push( new THREE.Vector3( -27, 0, 27 ) );
+points2.push( new THREE.Vector3( 27, 0, 27 ) );//
+points2.push( new THREE.Vector3( 17, 500, 17) );
+
+const geometry1 = new THREE.BufferGeometry().setFromPoints(points1);
+const material1 = new THREE.MeshBasicMaterial( { color: 'Aqua' } );
+material1.side = THREE.BackSide; //so that color is displayed on outside
+const base1 = new THREE.Mesh( geometry1, material1 );
+base1.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base1);
+
+const geometry2 = new THREE.BufferGeometry().setFromPoints(points2);
+const material2 = new THREE.MeshBasicMaterial( { color: 'Aqua' } );
+//material2.side = THREE.BackSide; //so that color is displayed on outside
+const base2 = new THREE.Mesh( geometry2, material2 );
+base2.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base2);
+
+// Back 
+points3.push( new THREE.Vector3( 17, 500, -17) );//
+points3.push( new THREE.Vector3( -27, 0, -27 ) );
+points3.push( new THREE.Vector3( - 17, 500, -17 ) );//
+points3.push( new THREE.Vector3( 17, 500, -17) );//
+
+points4.push( new THREE.Vector3( 17, 500, -17) );
+points4.push( new THREE.Vector3( -27, 0, -27 ) );
+points4.push( new THREE.Vector3( 27, 0, -27 ) );//
+points4.push( new THREE.Vector3( 17, 500, -17) );
+
+const geometry3 = new THREE.BufferGeometry().setFromPoints(points3);
+const material3 = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+//so that color is displayed on outside
+const base3 = new THREE.Mesh( geometry3, material3 );
+base3.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base3);
+
+const geometry4 = new THREE.BufferGeometry().setFromPoints(points4);
+const material4 = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+material4.side = THREE.BackSide; //so that color is displayed on outside
+const base4 = new THREE.Mesh( geometry4, material4 );
+base4.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base4);
+
+
+
+//left Side 
+
+points5.push( new THREE.Vector3( -17, 500, -17 ) );//
+points5.push( new THREE.Vector3( -27, 0, 27) );//
+points5.push( new THREE.Vector3( -27, 0, -27 ) );//
+points5.push( new THREE.Vector3( -17, 500, -17) );
+
+points6.push( new THREE.Vector3( -17, 500, -17 ) );
+points6.push( new THREE.Vector3( -27, 0, 27 ) );
+// top front 
+points6.push( new THREE.Vector3( -17, 500, 17 ) );
+points6.push( new THREE.Vector3( -17, 500, -17 ) );//
+
+const geometry5 = new THREE.BufferGeometry().setFromPoints(points5);
+const material5 = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
+material5.side = THREE.BackSide; //so that color is displayed on outside
+const base5 = new THREE.Mesh( geometry5, material5 );
+base5.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base5);
+
+const geometry6 = new THREE.BufferGeometry().setFromPoints(points6);
+const material6 = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
+//material5.side = THREE.BackSide; //so that color is displayed on outside
+const base6 = new THREE.Mesh( geometry6, material6 );
+base5.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base6);
+
+// Right side 
+points7.push( new THREE.Vector3( 17, 500, -17 ) );//
+points7.push( new THREE.Vector3( 27, 0, 27) );//
+points7.push( new THREE.Vector3( 27, 0, -27 ) );//
+points7.push( new THREE.Vector3( 17, 500, -17) );
+
+points8.push( new THREE.Vector3( 17, 500, -17 ) );
+points8.push( new THREE.Vector3( 27, 0, 27 ) );
+// top front 
+points8.push( new THREE.Vector3( 17, 500, 17 ) );
+points8.push( new THREE.Vector3( 17, 500, -17 ) );//
+
+const geometry7 = new THREE.BufferGeometry().setFromPoints(points7);
+const material7 = new THREE.MeshBasicMaterial( { color: 'rgb(0, 255,0 )'} );
+//material7.side = THREE.BackSide; //so that color is displayed on outside
+const base7 = new THREE.Mesh( geometry7, material7 );
+base7.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base7);
+
+const geometry8 = new THREE.BufferGeometry().setFromPoints(points8);
+const material8 = new THREE.MeshBasicMaterial( { color: 'rgb(0, 255,0)' } );
+material8.side = THREE.BackSide; //so that color is displayed on outside
+const base8 = new THREE.Mesh( geometry8, material8 );
+base8.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base8);
+
+
+
+// Pyramid 
+
+// front 
+// top front 
+points9.push( new THREE.Vector3( 17, 500, 17 ) );//
+points9.push( new THREE.Vector3( -17, 500, 17 ) );//
+points9.push( new THREE.Vector3( 0, 555, 0 ) );//
+points9.push( new THREE.Vector3( 17, 500, 17 ) );
+
+const geometry9 = new THREE.BufferGeometry().setFromPoints(points9);
+const material9 = new THREE.MeshBasicMaterial( { color: 'yellow' } );
+material9.side = THREE.BackSide; //so that color is displayed on outside
+const base9 = new THREE.Mesh( geometry9, material9 );
+base9.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base9);
+
+//back 
+points11.push( new THREE.Vector3( 17, 500, -17 ) );//
+points11.push( new THREE.Vector3( -17, 500, -17 ) );//
+points11.push( new THREE.Vector3( 0, 555, 0 ) );//
+points11.push( new THREE.Vector3( 17, 500, -17 ) );
+
+const geometry11 = new THREE.BufferGeometry().setFromPoints(points11);
+const material11 = new THREE.MeshBasicMaterial( { color: 'rgb(255,255,255)' } );
+//material11.side = THREE.BackSide; //so that color is displayed on outside
+const base11 = new THREE.Mesh( geometry11, material11 );
+base11.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base11);
+
+// right side 
+points10.push( new THREE.Vector3( 17, 500, 17 ) );//
+points10.push( new THREE.Vector3( 17, 500, -17 ) );//
+points10.push( new THREE.Vector3( 0, 555, 0 ) );//
+points10.push( new THREE.Vector3( 17, 500, 17 ) );
+
+const geometry10 = new THREE.BufferGeometry().setFromPoints(points10);
+const material10 = new THREE.MeshBasicMaterial( { color: 'pink' } );
+//material10.side = THREE.BackSide; //so that color is displayed on outside
+const base10 = new THREE.Mesh( geometry10, material10 );
+base10.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base10);
+
+// left side 
+points12.push( new THREE.Vector3( -17, 500, 17 ) );//
+points12.push( new THREE.Vector3( -17, 500, -17 ) );//
+points12.push( new THREE.Vector3( 0, 555, 0 ) );//
+points12.push( new THREE.Vector3( -17, 500, 17 ) );
+
+const geometry12 = new THREE.BufferGeometry().setFromPoints(points12);
+const material12 = new THREE.MeshBasicMaterial( { color: 'pink' } );
+material12.side = THREE.BackSide; //so that color is displayed on outside
+const base12 = new THREE.Mesh( geometry12, material12 );
+base12.position.set(0,-3,0); 
+
+//RENDER
+scene.add(base12);
+
+// Set up animation
+var animate = function () {
+  requestAnimationFrame(animate);
+  base1.rotation.y += 0.01;
+  base2.rotation.y += 0.01;
+  base3.rotation.y += 0.01;
+  base4.rotation.y += 0.01;
+  base5.rotation.y += 0.01;
+  base6.rotation.y += 0.01;
+  base7.rotation.y += 0.01;
+  base8.rotation.y += 0.01;
+  base9.rotation.y += 0.01;
+  base10.rotation.y += 0.01;
+  base11.rotation.y += 0.01;
+  base12.rotation.y += 0.01;
+  
+  
+  renderer.render(scene, camera);
+};
+
+var controls = new OrbitControls (camera, renderer.domElement);
+
+animate();
